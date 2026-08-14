@@ -3,3 +3,9 @@ dist/
 .DS_Store
 *.log
 .env
+.idea/
+tools/
+unused/
+doc/
+data/
+assets/refs/

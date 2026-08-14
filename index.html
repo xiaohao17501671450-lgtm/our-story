@@ -3,152 +3,52 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#3c2a22" />
+  <meta name="theme-color" content="#5c2a2e" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <title>来时路</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;1,500&family=Noto+Sans+SC:wght@300;400&family=Noto+Serif+SC:wght@500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
 <body>
-  <div class="stage">
-    <div class="phone">
-      <header class="topbar">
-        <button class="icon-btn" id="tocBtn" type="button" aria-label="目录">目录</button>
-        <p class="progress" id="progressLabel">封面</p>
-        <span class="page-no" id="pageNo">1</span>
-      </header>
+  <div class="app">
+    <div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
 
-      <main class="book" id="book" tabindex="0">
-        <article class="page is-cover is-active" data-title="封面">
-          <div class="cover">
-            <p class="cover-kicker">给我们</p>
-            <h1>来时路</h1>
-            <p class="cover-years">遇见之前 · 遇见之后 · 还未写完</p>
-            <button class="cover-cta" id="startBtn" type="button">打开这本书</button>
-            <p class="cover-note">示意稿 · 照片与正文待你筛选后填入</p>
-          </div>
-        </article>
+    <header class="chrome top">
+      <button type="button" id="homeBtn">封面</button>
+      <button type="button" id="tocBtn">目录</button>
+      <p id="caption">封面</p>
+      <button type="button" id="musicBtn" title="因为爱情" aria-label="音乐">♪</button>
+      <button type="button" id="jumpBtn" title="跳页">01</button>
+    </header>
 
-        <article class="page" data-title="目录">
-          <div class="inner">
-            <p class="eyebrow">Contents</p>
-            <h2>目录</h2>
-            <ol class="toc" id="tocList"></ol>
-          </div>
-        </article>
+    <main class="stage">
+      <div class="book" id="book">
+        <div class="track" id="track"></div>
+      </div>
+    </main>
 
-        <article class="page" data-title="上卷">
-          <div class="chapter-plate">
-            <p>上卷</p>
-            <h2>各自的来时路</h2>
-            <p>从出生，到还没有彼此的那些年。</p>
-          </div>
-        </article>
-
-        <article class="page" data-title="她 · 童年">
-          <div class="inner">
-            <p class="eyebrow">她</p>
-            <h2>童年</h2>
-            <div class="photo-frame" data-caption="占位 · 童年照片">照片</div>
-            <p class="body">正文稍后写入。这一页只放她小时候的一张照片，和一句很短的话。</p>
-          </div>
-        </article>
-
-        <article class="page" data-title="她 · 高中">
-          <div class="inner">
-            <p class="eyebrow">她</p>
-            <h2>高中</h2>
-            <div class="photo-frame tall" data-caption="占位 · 学生时代">照片</div>
-            <p class="body">上卷在高中结束。真正的故事，从下一卷才开始。</p>
-          </div>
-        </article>
-
-        <article class="page" data-title="我 · 来时路">
-          <div class="inner">
-            <p class="eyebrow">我</p>
-            <h2>我也走了很远</h2>
-            <div class="photo-row">
-              <div class="photo-frame" data-caption="占位">照片</div>
-              <div class="photo-frame" data-caption="占位">照片</div>
-            </div>
-            <p class="body">出生到高中，各用几页就够。重点是后面相遇的那些年。</p>
-          </div>
-        </article>
-
-        <article class="page" data-title="下卷">
-          <div class="chapter-plate">
-            <p>下卷</p>
-            <h2>我们的路</h2>
-            <p>从遇见开始，一页一件事，页数不设上限。</p>
-          </div>
-        </article>
-
-        <article class="page" data-title="遇见">
-          <div class="inner">
-            <p class="eyebrow">我们</p>
-            <h2>遇见</h2>
-            <div class="photo-frame" data-caption="占位 · 最早的合影">照片</div>
-            <p class="date">日期待填</p>
-            <p class="body">这一页放你们怎么认识。一张图，两三句话。</p>
-          </div>
-        </article>
-
-        <article class="page" data-title="在一起">
-          <div class="inner">
-            <p class="eyebrow">我们</p>
-            <h2>在一起</h2>
-            <div class="photo-frame" data-caption="占位">照片</div>
-            <p class="body">恋爱里那些普通的日子，比纪念日更适合放进这本书。</p>
-          </div>
-        </article>
-
-        <article class="page" data-title="结婚">
-          <div class="inner">
-            <p class="eyebrow">我们</p>
-            <h2>结婚</h2>
-            <div class="photo-frame wide" data-caption="占位 · 婚礼">照片</div>
-            <p class="body">仪式感留在这一页。后面还有很长的路要走。</p>
-          </div>
-        </article>
-
-        <article class="page" data-title="有了孩子">
-          <div class="inner">
-            <p class="eyebrow">我们</p>
-            <h2>有了孩子</h2>
-            <div class="photo-frame" data-caption="占位 · 三个人">照片</div>
-            <p class="body">四岁了。这一章会很长，也可以以后再补。</p>
-          </div>
-        </article>
-
-        <article class="page" data-title="这一年">
-          <div class="inner">
-            <p class="eyebrow">现在</p>
-            <h2>这一年</h2>
-            <p class="body">上班到很晚，业绩有压力。这些不必写成检讨，只要让她看见：我知道你辛苦，我一直在。</p>
-            <p class="aside">示意文案，定稿时再改。</p>
-          </div>
-        </article>
-
-        <article class="page is-blank" data-title="未完待续">
-          <div class="blank">
-            <p class="eyebrow">以后</p>
-            <h2>未完待续</h2>
-            <p>后面的章节，我们慢慢写。</p>
-            <div class="ruled"></div>
-            <div class="ruled"></div>
-            <div class="ruled"></div>
-          </div>
-        </article>
-      </main>
-
-      <nav class="pager">
-        <button type="button" id="prevBtn">上一页</button>
-        <div class="hint">左右滑动 · 点两侧也可翻页</div>
-        <button type="button" id="nextBtn">下一页</button>
-      </nav>
-    </div>
+    <nav class="chrome bottom">
+      <button type="button" id="prevBtn" aria-label="上一页">‹</button>
+      <p class="hint-phone">左右滑动</p>
+      <p class="hint-desk">左右滑动，或点两侧</p>
+      <button type="button" id="nextBtn" aria-label="下一页">›</button>
+    </nav>
   </div>
+
+  <aside class="jump" id="jump" hidden>
+    <form class="jump-panel" id="jumpForm">
+      <p>跳到第几页</p>
+      <div class="jump-row">
+        <input id="jumpInput" type="number" min="1" step="1" inputmode="numeric" />
+        <span id="jumpMax">/ 01</span>
+        <button type="submit">前往</button>
+      </div>
+      <button type="button" id="closeJump">取消</button>
+    </form>
+  </aside>
 
   <aside class="drawer" id="drawer" hidden>
     <div class="drawer-panel">
@@ -156,10 +56,24 @@
         <strong>目录</strong>
         <button type="button" id="closeToc">关闭</button>
       </div>
-      <ol class="toc drawer-toc" id="drawerToc"></ol>
+      <button type="button" class="toc-home" id="drawerHome">回到封面</button>
+      <ol class="index" id="drawerToc"></ol>
     </div>
   </aside>
 
+  <aside class="lightbox" id="lightbox" hidden>
+    <button type="button" id="closeLight">关闭</button>
+    <img id="lightImg" alt="" />
+    <p id="lightCap"></p>
+  </aside>
+
+  <audio id="bgm" loop preload="auto">
+    <source src="assets/music/因为爱情.mp3" type="audio/mpeg" />
+    <source src="assets/music/yinwei-aiqing.mp3" type="audio/mpeg" />
+    <source src="assets/music/因为爱情.m4a" type="audio/mp4" />
+  </audio>
+
+  <script src="assets/story-data.js"></script>
   <script src="assets/app.js"></script>
 </body>
 </html>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="640" viewBox="0 0 420 640">
+  <defs>
+    <filter id="press">
+      <feOffset in="SourceAlpha" dx="0.6" dy="0.8" result="d"/>
+      <feGaussianBlur in="d" stdDeviation="0.4" result="b"/>
+      <feFlood flood-color="#8a5a48" flood-opacity=".22" result="c"/>
+      <feComposite in="c" in2="b" operator="in" result="sh"/>
+      <feOffset in="SourceAlpha" dx="-0.5" dy="-0.6" result="d2"/>
+      <feGaussianBlur in="d2" stdDeviation="0.35" result="b2"/>
+      <feFlood flood-color="#fff8ee" flood-opacity=".35" result="c2"/>
+      <feComposite in="c2" in2="b2" operator="in" result="hi"/>
+      <feMerge>
+        <feMergeNode in="sh"/>
+        <feMergeNode in="hi"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <g filter="url(#press)" fill="none" stroke="#c9a08a" stroke-linecap="round" stroke-linejoin="round" opacity=".55">
+    <path stroke-width="1.35" d="M210 272c0-26-36-46-52-21-16 26 52 66 52 84 0-18 68-58 52-84-16-25-52-5-52 21z"/>
+    <circle cx="210" cy="322" r="92" stroke-width=".55" opacity=".55"/>
+  </g>
+  <g fill="#c47a72" opacity=".14" filter="url(#press)">
+    <path d="M70 96c0-8-10-14-15-6-5 8 15 20 15 25 0-5 20-17 15-25-5-8-15-2-15 6z"/>
+    <path d="M350 92c0-8-10-14-15-6-5 8 15 20 15 25 0-5 20-17 15-25-5-8-15-2-15 6z"/>
+    <path d="M76 544c0-8-10-14-15-6-5 8 15 20 15 25 0-5 20-17 15-25-5-8-15-2-15 6z"/>
+    <path d="M346 548c0-8-10-14-15-6-5 8 15 20 15 25 0-5 20-17 15-25-5-8-15-2-15 6z"/>
+  </g>
+  <g fill="none" stroke="#c4a070" stroke-width=".7" opacity=".18" stroke-linecap="round">
+    <path d="M32 52c40 10 58 40 88 48"/>
+    <path d="M388 52c-40 10-58 40-88 48"/>
+    <path d="M32 588c40-10 58-40 88-48"/>
+    <path d="M388 588c-40-10-58-40-88-48"/>
+  </g>
+</svg>

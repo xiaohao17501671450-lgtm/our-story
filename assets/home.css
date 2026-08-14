@@ -1,0 +1,313 @@
+:root {
+  --studio: #1a1010;
+  --cloth: #5c2a2e;
+  --foil: #e8c98a;
+  --paper: #f7efe4;
+  --ink: #2a1f1a;
+  --rose: #c47a72;
+  --mute: #8a7368;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100dvh;
+  font-family: "Noto Sans SC", "PingFang SC", sans-serif;
+  color: var(--ink);
+  background: var(--studio);
+  overflow-x: hidden;
+}
+
+.sky {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(70% 50% at 50% -10%, rgba(196, 122, 114, 0.38), transparent 58%),
+    radial-gradient(40% 40% at 82% 12%, rgba(232, 201, 138, 0.16), transparent 50%),
+    radial-gradient(80% 70% at 50% 110%, rgba(0, 0, 0, 0.45), transparent 55%),
+    linear-gradient(180deg, #2c1618 0%, #1a1010 42%, #120c0c 100%);
+}
+
+.moon {
+  position: absolute;
+  top: 7%;
+  right: 11%;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 32%, #f6e7c4, #e8c98a 55%, #c9a56a 100%);
+  box-shadow:
+    0 0 40px rgba(232, 201, 138, 0.45),
+    0 0 90px rgba(196, 122, 114, 0.22);
+}
+
+.moon::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 18px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #2c1618;
+  opacity: 0.22;
+}
+
+.glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.g1 {
+  width: 220px;
+  height: 220px;
+  left: -40px;
+  bottom: 8%;
+  background: #c47a72;
+}
+
+.g2 {
+  width: 180px;
+  height: 180px;
+  right: -20px;
+  bottom: 22%;
+  background: #e8c98a;
+}
+
+.petals {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.petals i {
+  position: absolute;
+  top: -16px;
+  width: 9px;
+  height: 12px;
+  background: #e8b4aa;
+  border-radius: 80% 0 80% 80%;
+  opacity: 0.7;
+  animation: fall linear infinite;
+}
+
+.petals i:nth-child(odd) { background: #f0d4a8; }
+.petals i:nth-child(3n) { background: #f4cfc4; }
+
+@keyframes fall {
+  0% { transform: translateY(0) rotate(0); opacity: 0; }
+  12% { opacity: 0.75; }
+  100% { transform: translateY(108vh) rotate(240deg); opacity: 0; }
+}
+
+.music {
+  position: fixed;
+  top: calc(12px + env(safe-area-inset-top));
+  right: 16px;
+  z-index: 6;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(232, 201, 138, 0.4);
+  border-radius: 50%;
+  background: rgba(26, 16, 16, 0.35);
+  color: var(--foil);
+  font: 500 18px/1 "EB Garamond", serif;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+}
+
+.music.off { opacity: 0.4; }
+
+.letter {
+  position: relative;
+  z-index: 2;
+  width: min(440px, calc(100% - 32px));
+  margin: 0 auto;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: calc(56px + env(safe-area-inset-top)) 28px calc(36px + env(safe-area-inset-bottom));
+  text-align: center;
+  animation: rise 1.15s ease both;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.letter::before {
+  content: "";
+  position: absolute;
+  inset: 18px 0;
+  background:
+    radial-gradient(120% 70% at 50% 0%, rgba(255, 251, 244, 0.7), transparent 55%),
+    linear-gradient(180deg, #fbf6ee, #f0e2cf 100%);
+  border-radius: 4px;
+  box-shadow:
+    0 0 0 1px rgba(232, 201, 138, 0.35),
+    0 28px 70px rgba(10, 4, 4, 0.45);
+  z-index: -1;
+}
+
+.seal {
+  margin: 0 0 8px;
+  font-family: "EB Garamond", serif;
+  font-size: 13px;
+  letter-spacing: 0.38em;
+  color: var(--rose);
+}
+
+.flourish {
+  display: block;
+  width: 88px;
+  height: 10px;
+  margin: 4px 0 18px;
+  background: linear-gradient(90deg, transparent, var(--foil), transparent);
+  position: relative;
+  opacity: 0.8;
+}
+
+.flourish::before,
+.flourish::after {
+  content: "♡";
+  position: absolute;
+  top: -8px;
+  font-size: 11px;
+  color: var(--foil);
+}
+
+.flourish::before { left: -2px; }
+.flourish::after { right: -2px; }
+
+.to {
+  margin: 0;
+  font-family: "Noto Serif SC", serif;
+  font-size: 13px;
+  letter-spacing: 0.42em;
+  color: var(--mute);
+}
+
+h1 {
+  margin: 10px 0 0;
+  font-family: "Noto Serif SC", serif;
+  font-weight: 500;
+  font-size: clamp(36px, 10vw, 48px);
+  letter-spacing: 0.28em;
+  text-indent: 0.28em;
+}
+
+.heart {
+  margin: 6px 0 16px;
+  color: #c47a72;
+  font-size: 16px;
+  opacity: 0.85;
+}
+
+.cameo {
+  margin: 0 0 22px;
+  width: 148px;
+  aspect-ratio: 4 / 5;
+  padding: 6px;
+  border-radius: 50% 50% 46% 46%;
+  background: linear-gradient(#3a1c1e, #1a0e10);
+  box-shadow:
+    0 0 0 1px rgba(232, 201, 138, 0.55),
+    0 0 0 7px rgba(92, 42, 46, 0.2),
+    0 16px 32px rgba(80, 40, 28, 0.18);
+}
+
+.cameo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 12%;
+  border-radius: 50% 50% 46% 46%;
+  filter: sepia(0.14) saturate(1.08) brightness(1.04);
+}
+
+.verse {
+  margin: 0 0 14px;
+  font-family: "Noto Serif SC", serif;
+  font-size: 18px;
+  letter-spacing: 0.18em;
+  color: #6a3a36;
+}
+
+.body,
+.wish {
+  margin: 0;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 2.05;
+  color: #4c453e;
+  max-width: 22em;
+}
+
+.wish {
+  margin-top: 12px;
+  font-family: "Noto Serif SC", serif;
+  color: #6a3a36;
+}
+
+.sign {
+  margin: 18px 0 0;
+  font-family: "Noto Serif SC", serif;
+  font-size: 13px;
+  letter-spacing: 0.28em;
+  color: var(--mute);
+}
+
+.open {
+  margin-top: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 28px;
+  border-radius: 999px;
+  background: #5c2a2e;
+  color: var(--foil);
+  text-decoration: none;
+  font-family: "Noto Serif SC", serif;
+  letter-spacing: 0.22em;
+  box-shadow: 0 10px 24px rgba(92, 42, 46, 0.28);
+}
+
+.open:hover { filter: brightness(1.08); }
+
+.hint {
+  margin: 12px 0 0;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--mute);
+}
+
+@media (min-width: 900px) {
+  .letter {
+    width: min(520px, 92vw);
+    padding-top: 64px;
+    padding-bottom: 48px;
+  }
+
+  .letter::before { inset: 28px -24px; }
+
+  .cameo { width: 168px; }
+
+  .body { font-size: 15px; }
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#5c2a2e" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>来时路</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;1,500&family=Noto+Sans+SC:wght@300;400&family=Noto+Serif+SC:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
+
+    <header class="chrome top">
+      <a class="gift-back" href="index.html">礼物</a>
+      <button type="button" id="homeBtn">封面</button>
+      <button type="button" id="tocBtn">目录</button>
+      <p id="caption">封面</p>
+      <button type="button" id="musicBtn" title="因为爱情" aria-label="音乐">♪</button>
+      <button type="button" id="jumpBtn" title="跳页">01</button>
+    </header>
+
+    <main class="stage">
+      <div class="book" id="book">
+        <div class="track" id="track"></div>
+      </div>
+    </main>
+
+    <nav class="chrome bottom">
+      <button type="button" id="prevBtn" aria-label="上一页">‹</button>
+      <p class="hint-phone">左右滑动</p>
+      <p class="hint-desk">左右滑动，或点两侧</p>
+      <button type="button" id="nextBtn" aria-label="下一页">›</button>
+    </nav>
+  </div>
+
+  <aside class="jump" id="jump" hidden>
+    <form class="jump-panel" id="jumpForm">
+      <p>跳到第几页</p>
+      <div class="jump-row">
+        <input id="jumpInput" type="number" min="1" step="1" inputmode="numeric" />
+        <span id="jumpMax">/ 01</span>
+        <button type="submit">前往</button>
+      </div>
+      <button type="button" id="closeJump">取消</button>
+    </form>
+  </aside>
+
+  <aside class="drawer" id="drawer" hidden>
+    <div class="drawer-panel">
+      <div class="drawer-head">
+        <strong>目录</strong>
+        <button type="button" id="closeToc">关闭</button>
+      </div>
+      <button type="button" class="toc-home" id="drawerHome">回到封面</button>
+      <ol class="index" id="drawerToc"></ol>
+    </div>
+  </aside>
+
+  <aside class="lightbox" id="lightbox" hidden>
+    <button type="button" id="closeLight">关闭</button>
+    <img id="lightImg" alt="" />
+    <p id="lightCap"></p>
+  </aside>
+
+  <audio id="bgm" loop preload="auto">
+    <source src="assets/music/yinwei-aiqing.mp3" type="audio/mpeg" />
+    <source src="assets/music/因为爱情.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script src="assets/story-data.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>

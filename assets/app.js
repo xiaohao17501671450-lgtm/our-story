@@ -347,12 +347,16 @@ function refreshMore() {
   renderToc(drawerToc);
 }
 
+function lastOpenOf(title) {
+  return [...spreads].reverse().find((el) => el.dataset.title === title && el.dataset.extra !== "1");
+}
+
 function wireMore() {
   const titles = [...new Set(spreads.map((el) => el.dataset.title))];
   titles.forEach((title) => {
     const extras = extrasOf(title);
     if (!extras.length) return;
-    const opener = spreads.find((el) => el.dataset.title === title && el.dataset.extra !== "1");
+    const opener = lastOpenOf(title);
     if (!opener) return;
     const host = opener.querySelector(".type") || opener.querySelector(".quiet-inner") || opener;
     const expand = document.createElement("button");
@@ -457,7 +461,7 @@ track.addEventListener("click", (e) => {
     requestAnimationFrame(() => go(spreads.indexOf(first)));
   } else {
     openChapters.delete(title);
-    const opener = spreads.find((el) => el.dataset.title === title && el.dataset.extra !== "1");
+    const opener = lastOpenOf(title);
     applyExtra();
     refreshMore();
     requestAnimationFrame(() => go(spreads.indexOf(opener), true));

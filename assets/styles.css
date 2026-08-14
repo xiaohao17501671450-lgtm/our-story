@@ -64,7 +64,7 @@ img {
 }
 .chrome > * { pointer-events: auto; }
 .chrome.top {
-  grid-template-columns: auto auto 1fr auto auto;
+  grid-template-columns: auto auto auto 1fr auto auto;
   top: 0;
   padding: calc(10px + env(safe-area-inset-top)) 18px 24px;
   background: linear-gradient(180deg, rgba(17,16,14,.5), transparent);
@@ -103,6 +103,15 @@ img {
   min-width: 72px;
 }
 #homeBtn { letter-spacing: 0.2em; }
+.gift-back {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: rgba(236, 232, 223, 0.88);
+  text-decoration: none;
+  font: 400 13px/1 "Noto Sans SC", sans-serif;
+  letter-spacing: 0.2em;
+}
 #musicBtn {
   min-width: 36px;
   font-family: "EB Garamond", serif;
@@ -410,7 +419,9 @@ img {
   cursor: pointer;
   min-height: 40px;
 }
-.more-photos.fold {
+.more-photos.fold,
+.spread.pair > .more-photos,
+.spread.plate > .more-photos {
   position: absolute;
   left: 50%;
   bottom: calc(14px + env(safe-area-inset-bottom));

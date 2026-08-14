@@ -3,77 +3,55 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#5c2a2e" />
+  <meta name="theme-color" content="#2a1214" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <title>来时路</title>
+  <title>给淑君 · 农历七月初一</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;1,500&family=Noto+Sans+SC:wght@300;400&family=Noto+Serif+SC:wght@500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;1,500&family=Noto+Sans+SC:wght@300;400&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/home.css" />
 </head>
 <body>
-  <div class="app">
-    <div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
-
-    <header class="chrome top">
-      <button type="button" id="homeBtn">封面</button>
-      <button type="button" id="tocBtn">目录</button>
-      <p id="caption">封面</p>
-      <button type="button" id="musicBtn" title="因为爱情" aria-label="音乐">♪</button>
-      <button type="button" id="jumpBtn" title="跳页">01</button>
-    </header>
-
-    <main class="stage">
-      <div class="book" id="book">
-        <div class="track" id="track"></div>
-      </div>
-    </main>
-
-    <nav class="chrome bottom">
-      <button type="button" id="prevBtn" aria-label="上一页">‹</button>
-      <p class="hint-phone">左右滑动</p>
-      <p class="hint-desk">左右滑动，或点两侧</p>
-      <button type="button" id="nextBtn" aria-label="下一页">›</button>
-    </nav>
+  <div class="sky" aria-hidden="true">
+    <span class="moon"></span>
+    <span class="glow g1"></span>
+    <span class="glow g2"></span>
   </div>
+  <div class="petals" id="petals" aria-hidden="true"></div>
 
-  <aside class="jump" id="jump" hidden>
-    <form class="jump-panel" id="jumpForm">
-      <p>跳到第几页</p>
-      <div class="jump-row">
-        <input id="jumpInput" type="number" min="1" step="1" inputmode="numeric" />
-        <span id="jumpMax">/ 01</span>
-        <button type="submit">前往</button>
-      </div>
-      <button type="button" id="closeJump">取消</button>
-    </form>
-  </aside>
+  <button type="button" class="music" id="musicBtn" title="因为爱情" aria-label="音乐">♪</button>
 
-  <aside class="drawer" id="drawer" hidden>
-    <div class="drawer-panel">
-      <div class="drawer-head">
-        <strong>目录</strong>
-        <button type="button" id="closeToc">关闭</button>
-      </div>
-      <button type="button" class="toc-home" id="drawerHome">回到封面</button>
-      <ol class="index" id="drawerToc"></ol>
-    </div>
-  </aside>
+  <main class="letter">
+    <p class="seal">农历二〇二六 · 七月初一</p>
+    <span class="flourish" aria-hidden="true"></span>
+    <p class="to">致 郭淑君</p>
+    <h1>生日快乐</h1>
+    <p class="heart" aria-hidden="true">♡</p>
 
-  <aside class="lightbox" id="lightbox" hidden>
-    <button type="button" id="closeLight">关闭</button>
-    <img id="lightImg" alt="" />
-    <p id="lightCap"></p>
-  </aside>
+    <figure class="cameo">
+      <img src="assets/photos/20200821_valid_JWJS6535.jpg" alt="淑君" />
+    </figure>
+
+    <p class="verse">物有尽时，心无涯岸。</p>
+    <p class="body">
+      能捧在手里的，终会旧去；<br />
+      能放进心里的，才会一直新。<br />
+      这一年，我不想再给你一件会落灰的东西——<br />
+      想把我们从仙桃走到今天的路，<br />
+      一页一页叠起来，放进你掌心。
+    </p>
+    <p class="wish">愿你喜欢这份，只能用心打开的礼物。</p>
+    <p class="sign">亲爱的老公</p>
+
+    <a class="open" href="book.html">翻开《来时路》</a>
+    <p class="hint">轻轻点开，里面是我们</p>
+  </main>
 
   <audio id="bgm" loop preload="auto">
-    <source src="assets/music/因为爱情.mp3" type="audio/mpeg" />
     <source src="assets/music/yinwei-aiqing.mp3" type="audio/mpeg" />
-    <source src="assets/music/因为爱情.m4a" type="audio/mp4" />
+    <source src="assets/music/因为爱情.mp3" type="audio/mpeg" />
   </audio>
-
-  <script src="assets/story-data.js"></script>
-  <script src="assets/app.js"></script>
+  <script src="assets/home.js"></script>
 </body>
 </html>
